@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxnk0xx5narf6"]
+
+[ext_resource type="Script" path="res://prefabs/main/health_component.gd" id="1_4g8vd"]
+
+[node name="HealthComponent" type="Area3D"]
+script = ExtResource("1_4g8vd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

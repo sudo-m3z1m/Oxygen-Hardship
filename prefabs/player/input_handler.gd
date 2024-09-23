@@ -2,6 +2,10 @@ extends Node
 
 class_name InputHandler
 
+@export_range(0, 1) var camera_sensitivity: float
+@export_range(0, 180, 0.01, "radians_as_degrees") var camera_angle_x_max: float
+
+@onready var target: Player = get_parent()
 @onready var state_machine = get_parent().get_node("StateMachine")
 
 var inputs_actions: Array[String] = [
@@ -13,6 +17,9 @@ var inputs_actions: Array[String] = [
 ]
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_camera(event.relative)
+
 	for action in inputs_actions:
 		if !event.is_action_pressed(action):
 			continue
@@ -48,3 +55,10 @@ func set_action_event(action: String) -> void:
 			pass
 		"Drop":
 			pass
+
+func rotate_camera(relative_vector: Vector2) -> void:
+	var camera: Camera3D = target.camera
+	camera.rotation.x -= relative_vector.y * camera_sensitivity
+	camera.rotation.y -= relative_vector.x * camera_sensitivity
+	
+	camera.rotation.x = clamp(camera.rotation.x, -camera_angle_x_max, camera_angle_x_max)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://copgevkpnoyfy"]
+[gd_scene load_steps=8 format=3 uid="uid://copgevkpnoyfy"]
 
 [ext_resource type="Script" path="res://prefabs/player/player.gd" id="1_arm88"]
 [ext_resource type="Script" path="res://prefabs/player/input_handler.gd" id="2_od5t5"]
 [ext_resource type="Script" path="res://prefabs/player/state_machine/state_machine.gd" id="3_pn5r4"]
+[ext_resource type="Script" path="res://prefabs/player/items_component.gd" id="4_h4s7e"]
+[ext_resource type="PackedScene" uid="uid://dxnk0xx5narf6" path="res://prefabs/main/health_component.tscn" id="5_cuk16"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_24ws4"]
 
@@ -10,8 +12,6 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_arm88")
-camera_sensitivity = 0.01
-camera_angle_x_max = 1.5708
 
 [node name="Model" type="Node3D" parent="."]
 
@@ -24,8 +24,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.597867, -0.400786)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gnsc1")
 
+[node name="HealthComponent" parent="." instance=ExtResource("5_cuk16")]
+
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("2_od5t5")
+camera_sensitivity = 0.01
+camera_angle_x_max = 1.5708
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_pn5r4")
+
+[node name="ItemsComponent" type="Node" parent="."]
+script = ExtResource("4_h4s7e")

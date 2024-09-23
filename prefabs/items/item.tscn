@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://htcdmxmx3jgf"]
+
+[ext_resource type="Script" path="res://prefabs/items/item.gd" id="1_1mm4j"]
+
+[node name="Item" type="RigidBody3D"]
+script = ExtResource("1_1mm4j")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]

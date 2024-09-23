@@ -11,7 +11,8 @@ func _init(target: Object, state_machine: StateMachine) -> void:
 	inertia_weight = 0.1
 
 func enter_state() -> void:
-	target.gravity = 10.0
+	target.gravity = 15.0
+	state_machine.change_state(StateMachine.States.IDLE)
 
 func update_state(delta: float) -> void:
 	pass

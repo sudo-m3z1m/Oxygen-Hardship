@@ -28,13 +28,15 @@ var states: Dictionary = {
 	States.WALK: preload("res://prefabs/player/state_machine/states/walk.gd"),
 	States.SWIM_IDLE: preload("res://prefabs/player/state_machine/states/swim_idle.gd"),
 	States.SWIM: preload("res://prefabs/player/state_machine/states/swim.gd"),
-	States.JUMP: preload("res://prefabs/player/state_machine/states/state.gd"),
+	States.JUMP: preload("res://prefabs/player/state_machine/states/jump.gd"),
 }
 
 var current_place_state_index: PlaceStates = PlaceStates.UNDERWATER
 var current_place_state: PlaceState
+
 var current_state_index: States
 var current_state: DetailedState
+
 var raw_direction: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
@@ -46,6 +48,7 @@ func _process(delta: float) -> void:
 	current_state.update_state(delta)
 	
 	raw_direction = input_handler.get_moving_input()
+
 	if raw_direction:
 		change_state(current_place_state.get_moving_state_index())
 		return
@@ -59,8 +62,9 @@ func change_state(new_state_index: States) -> void:
 	current_state = states[new_state_index].new(target, self, current_place_state)
 	current_state.enter_state()
 
-func set_current_movement_type(new_place_state_index: PlaceStates) -> void:
+func set_current_place_state(new_place_state_index: PlaceStates) -> void:
 	if current_place_state_index == new_place_state_index:
 		return
+	current_place_state_index = new_place_state_index
 	current_place_state = place_states[new_place_state_index].new(target, self)
 	current_place_state.enter_state()

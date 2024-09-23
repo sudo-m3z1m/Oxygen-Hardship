@@ -10,7 +10,7 @@ func enter_state() -> void:
 
 func update_state(delta: float) -> void:
 	target.velocity = lerp(target.velocity, Vector3.ZERO, place_state.inertia_weight)
-	
+
 	target.move_and_slide()
 
 func exit_state(new_state_index: StateMachine.States) -> bool:
