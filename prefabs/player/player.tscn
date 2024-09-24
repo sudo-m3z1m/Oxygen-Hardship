@@ -21,6 +21,12 @@ mesh = SubResource("CapsuleMesh_24ws4")
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.597867, -0.400786)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera"]
+omni_range = 12.0
+
+[node name="ItemsMarker" type="Marker3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0912023, -1.15904)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gnsc1")
 

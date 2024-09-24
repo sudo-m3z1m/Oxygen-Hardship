@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdj3es287b7o0"]
+
+[ext_resource type="Script" path="res://prefabs/hud/items_hud.gd" id="1_leh5l"]
+[ext_resource type="PackedScene" uid="uid://dmv5r1aqm5xp2" path="res://prefabs/hud/cell.tscn" id="2_rwg5i"]
+
+[node name="ItemsHUD" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 15
+script = ExtResource("1_leh5l")
+
+[node name="FirstCell" parent="." instance=ExtResource("2_rwg5i")]
+layout_mode = 2
+
+[node name="SecondCell" parent="." instance=ExtResource("2_rwg5i")]
+layout_mode = 2
+
+[node name="ThirdCell" parent="." instance=ExtResource("2_rwg5i")]
+layout_mode = 2
+delta_position_y = -25.0
+
+[node name="ForthCell" parent="." instance=ExtResource("2_rwg5i")]
+layout_mode = 2

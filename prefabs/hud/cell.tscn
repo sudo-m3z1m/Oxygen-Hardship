@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmv5r1aqm5xp2"]
+
+[ext_resource type="Script" path="res://prefabs/hud/cell.gd" id="1_7nugs"]
+[ext_resource type="Texture2D" uid="uid://cyraxytnt5g0x" path="res://icon.svg" id="1_gtb6s"]
+
+[node name="Cell" type="Panel"]
+custom_minimum_size = Vector2(75, 75)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1077.0
+offset_bottom = -573.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7nugs")
+delta_position_y = -50.0
+animation_time = 0.1
+texture = ExtResource("1_gtb6s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 4

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://0pu5d7bnnruu"]
+[gd_scene load_steps=2 format=3 uid="uid://0pu5d7bnnruu"]
+
+[ext_resource type="PackedScene" uid="uid://cdj3es287b7o0" path="res://prefabs/hud/items_hud.tscn" id="1_6641e"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -18,3 +20,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 value = 100.0
+
+[node name="ItemsHUD" parent="MarginContainer" instance=ExtResource("1_6641e")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8

@@ -23,7 +23,6 @@ sdfgi_enabled = true
 sdfgi_use_occlusion = true
 fog_light_energy = 0.1
 fog_density = 0.001
-volumetric_fog_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bfiue"]
 size = Vector3(30, 13.6497, 30)
@@ -71,7 +70,7 @@ gi_mode = 2
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.670699, 0.74173, 0, -0.74173, 0.670699, 0, 13.5292, 14.3377)
 light_color = Color(0.0486294, 0.174158, 0.130917, 1)
-light_energy = 0.1
+light_energy = 0.17
 shadow_enabled = true
 
 [node name="TestSubmarine" parent="." instance=ExtResource("4_icwj4")]
