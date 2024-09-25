@@ -17,7 +17,6 @@ layout_mode = 2
 
 [node name="ThirdCell" parent="." instance=ExtResource("2_rwg5i")]
 layout_mode = 2
-delta_position_y = -25.0
 
 [node name="ForthCell" parent="." instance=ExtResource("2_rwg5i")]
 layout_mode = 2

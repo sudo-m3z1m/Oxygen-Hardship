@@ -13,7 +13,9 @@ var inputs_actions: Array[String] = [
 	"Down",
 	"Interact",
 	"Drop",
-	"Use"
+	"Use",
+	"ScrollUp",
+	"ScrollDown"
 ]
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,11 +52,16 @@ func set_action_event(action: String) -> void:
 		"Down":
 			pass
 		"Interact":
-			pass
+			target.items_component.take_item()
 		"Use":
 			pass
 		"Drop":
 			pass
+		"ScrollUp":
+			target.items_hud.change_current_cell(target.items_hud.current_cell_index + 1)
+		"ScrollDown":
+			target.items_hud.change_current_cell(target.items_hud.current_cell_index - 1)
+
 
 func rotate_camera(relative_vector: Vector2) -> void:
 	var camera: Camera3D = target.camera
