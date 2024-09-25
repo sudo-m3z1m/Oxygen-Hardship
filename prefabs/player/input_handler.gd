@@ -62,10 +62,9 @@ func set_action_event(action: String) -> void:
 		"ScrollDown":
 			target.items_hud.change_current_cell(target.items_hud.current_cell_index - 1)
 
-
 func rotate_camera(relative_vector: Vector2) -> void:
 	var camera: Camera3D = target.camera
 	camera.rotation.x -= relative_vector.y * camera_sensitivity
 	camera.rotation.y -= relative_vector.x * camera_sensitivity
-	
+
 	camera.rotation.x = clamp(camera.rotation.x, -camera_angle_x_max, camera_angle_x_max)
