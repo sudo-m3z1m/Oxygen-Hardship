@@ -1,12 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://htcdmxmx3jgf"]
+[gd_scene load_steps=5 format=3 uid="uid://htcdmxmx3jgf"]
 
 [ext_resource type="Script" path="res://prefabs/items/item.gd" id="1_1mm4j"]
+[ext_resource type="Script" path="res://prefabs/items/items_states/enabled_state.gd" id="2_8pc1q"]
+[ext_resource type="Script" path="res://prefabs/items/items_states/disabled_state.gd" id="3_lqrxv"]
+[ext_resource type="Script" path="res://prefabs/items/items_states/dropped_state.gd" id="4_k5fp2"]
 
 [node name="Item" type="RigidBody3D"]
 script = ExtResource("1_1mm4j")
 
 [node name="Model" type="Node3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="States" type="Node" parent="."]
+
+[node name="Enabled" type="Node" parent="States" node_paths=PackedStringArray("target")]
+script = ExtResource("2_8pc1q")
+target = NodePath("../..")
+
+[node name="Disabled" type="Node" parent="States" node_paths=PackedStringArray("target")]
+script = ExtResource("3_lqrxv")
+target = NodePath("../..")
+
+[node name="Dropped" type="Node" parent="States" node_paths=PackedStringArray("target")]
+script = ExtResource("4_k5fp2")
+target = NodePath("../..")

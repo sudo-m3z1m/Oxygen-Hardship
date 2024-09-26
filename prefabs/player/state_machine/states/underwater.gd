@@ -7,7 +7,7 @@ func _init(target: Object, state_machine: StateMachine) -> void:
 	
 	max_speed = 5
 	acceleration_weight = 0.05
-	inertia_weight = 0.15
+	inertia_weight = 0.03
 
 func enter_state() -> void:
 	target.gravity = 0

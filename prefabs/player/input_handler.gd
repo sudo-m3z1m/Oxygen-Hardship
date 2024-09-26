@@ -58,9 +58,9 @@ func set_action_event(action: String) -> void:
 		"Drop":
 			pass
 		"ScrollUp":
-			target.items_hud.change_current_cell(target.items_hud.current_cell_index + 1)
+			target.items_component.set_current_item(target.items_component.current_item_index + 1)
 		"ScrollDown":
-			target.items_hud.change_current_cell(target.items_hud.current_cell_index - 1)
+			target.items_component.set_current_item(target.items_component.current_item_index - 1)
 
 func rotate_camera(relative_vector: Vector2) -> void:
 	var camera: Camera3D = target.camera

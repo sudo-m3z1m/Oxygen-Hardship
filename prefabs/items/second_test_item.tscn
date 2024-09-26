@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://4otek7lobjmt"]
+
+[ext_resource type="PackedScene" uid="uid://htcdmxmx3jgf" path="res://prefabs/items/item.tscn" id="1_csnnw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hmskh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhdxh"]
+
+[node name="SecondTestItem" instance=ExtResource("1_csnnw")]
+identifier = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" index="0"]
+mesh = SubResource("BoxMesh_hmskh")
+
+[node name="CollisionShape" parent="." index="1"]
+shape = SubResource("BoxShape3D_mhdxh")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://copgevkpnoyfy"]
+[gd_scene load_steps=9 format=3 uid="uid://copgevkpnoyfy"]
 
 [ext_resource type="Script" path="res://prefabs/player/player.gd" id="1_arm88"]
+[ext_resource type="Texture2D" uid="uid://br5sy33lg4ecq" path="res://sprites/dote.svg" id="2_l1qit"]
 [ext_resource type="Script" path="res://prefabs/player/input_handler.gd" id="2_od5t5"]
 [ext_resource type="Script" path="res://prefabs/player/state_machine/state_machine.gd" id="3_pn5r4"]
 [ext_resource type="Script" path="res://prefabs/player/items_component.gd" id="4_h4s7e"]
@@ -12,7 +13,6 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_arm88")
-gravity = null
 
 [node name="Model" type="Node3D" parent="."]
 
@@ -30,11 +30,16 @@ target_position = Vector3(0, 0, -3)
 omni_range = 12.0
 
 [node name="ItemsMarker" type="Marker3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750417, -0.380787, -1.54879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.381, -1.549)
+
+[node name="Sprite3D" type="Sprite3D" parent="Camera"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.548147)
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("2_l1qit")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gnsc1")
-disabled = true
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_cuk16")]
 
