@@ -27,14 +27,15 @@ func add_item(new_item: Item) -> void:
 			continue
 
 		hand_items[item_index] = new_item
+		new_item.current_item_component = self
+		
 		items_hud.add_cell_item(item_index, new_item)
-
 		set_current_item(item_index)
-		new_item.change_state(Item.ItemStates.ENABLED)
 
 		new_item.global_position = items_marker.global_position
 		new_item.reparent(items_marker)
 		new_item.rotation = Vector3.ZERO
+		
 		return
 
 func set_current_item(new_item_index: int) -> void:

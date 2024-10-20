@@ -15,6 +15,8 @@ class_name Item
 	ItemStates.DROPPED: $States/Dropped
 }
 
+var current_item_component: ItemsComponent
+
 enum ItemStates {
 	ENABLED,
 	DISABLED,

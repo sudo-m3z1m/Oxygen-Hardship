@@ -1,6 +1,7 @@
 extends ItemState
 
 func enter_state() -> void:
+	target.current_item_component = null
 	target.collision_shape.set_disabled(false)
 	target.freeze = false
 

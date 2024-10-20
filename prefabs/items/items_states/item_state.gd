@@ -12,3 +12,6 @@ func update_state(delta: float) -> void:
 
 func exit_state() -> void:
 	pass
+
+func use_effect() -> void:
+	pass

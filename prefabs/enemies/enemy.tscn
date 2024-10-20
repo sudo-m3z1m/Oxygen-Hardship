@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7oxfl1voivdf"]
+
+[ext_resource type="Script" path="res://prefabs/enemies/enemy.gd" id="1_h4gau"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_h4gau")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="NavigationAgent" type="NavigationAgent3D" parent="."]
