@@ -1,8 +1,4 @@
-extends Node
-
-class_name ItemState
-
-@export var target: Item
+extends ItemState
 
 func enter_state() -> void:
 	pass

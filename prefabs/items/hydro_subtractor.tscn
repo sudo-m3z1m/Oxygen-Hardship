@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://buol4v3bj2ye"]
+
+[ext_resource type="PackedScene" uid="uid://htcdmxmx3jgf" path="res://prefabs/items/item.tscn" id="1_6pto8"]
+[ext_resource type="PackedScene" uid="uid://bi3h8k2cqc08g" path="res://models/objects/oxygen_subtractor.glb" id="2_prhoi"]
+[ext_resource type="Script" path="res://prefabs/items/items_states/hydro_subtractor/subtractor_used_state.gd" id="3_0xnfx"]
+[ext_resource type="Script" path="res://prefabs/levels/test_air_area.gd" id="3_8x8u6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw1as"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dg658"]
+radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m72tf"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.152941)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h4a68"]
+material = SubResource("StandardMaterial3D_m72tf")
+radius = 5.0
+height = 10.0
+radial_segments = 16
+rings = 8
+
+[node name="HydroSubtractor" instance=ExtResource("1_6pto8")]
+identifier = 2
+
+[node name="oxygen_subtractor" parent="Model" index="0" instance=ExtResource("2_prhoi")]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, -0.0975917, 0)
+
+[node name="CollisionShape" parent="." index="1"]
+shape = SubResource("BoxShape3D_nw1as")
+
+[node name="Used" parent="States" index="3" node_paths=PackedStringArray("subtract_area", "area_sphere")]
+script = ExtResource("3_0xnfx")
+subtract_area = NodePath("../../SubtractArea")
+area_sphere = NodePath("../../AreaSphere")
+
+[node name="SubtractArea" type="Area3D" parent="." index="3"]
+monitoring = false
+script = ExtResource("3_8x8u6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubtractArea" index="0"]
+shape = SubResource("SphereShape3D_dg658")
+
+[node name="AreaSphere" type="MeshInstance3D" parent="." index="4"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_h4a68")

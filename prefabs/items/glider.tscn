@@ -5,7 +5,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lgkbr"]
 
-[node name="TestItem" instance=ExtResource("1_3r3e3")]
+[node name="Glider" instance=ExtResource("1_3r3e3")]
 identifier = 1
 
 [node name="glider" parent="Model" index="0" instance=ExtResource("2_uc7bn")]

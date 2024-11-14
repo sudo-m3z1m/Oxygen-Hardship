@@ -12,13 +12,15 @@ class_name Item
 @onready var item_states: Dictionary = {
 	ItemStates.ENABLED: $States/Enabled,
 	ItemStates.DISABLED: $States/Disabled,
-	ItemStates.DROPPED: $States/Dropped
+	ItemStates.DROPPED: $States/Dropped,
+	ItemStates.USED: $States/Used
 }
 
 enum ItemStates {
 	ENABLED,
 	DISABLED,
-	DROPPED
+	DROPPED,
+	USED
 }
 
 func _process(delta: float) -> void:

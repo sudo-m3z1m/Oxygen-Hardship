@@ -7,7 +7,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_mhdxh"]
 
 [node name="SecondTestItem" instance=ExtResource("1_csnnw")]
-identifier = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model" index="0"]
 mesh = SubResource("BoxMesh_hmskh")

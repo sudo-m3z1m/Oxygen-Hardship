@@ -15,6 +15,11 @@ func _ready() -> void:
 	for item_index in max_hand_items:
 		hand_items.append(Item.new())
 
+func use_item() -> void:
+	if !hand_items[current_item_index].identifier:
+		return
+	hand_items[current_item_index].change_state(Item.ItemStates.USED)
+
 func take_item() -> void:
 	var raycasting_object: Node3D = target.interaction_raycast.get_collider()
 
@@ -30,7 +35,7 @@ func add_item(new_item: Item) -> void:
 		items_hud.add_cell_item(item_index, new_item)
 
 		set_current_item(item_index)
-		new_item.change_state(Item.ItemStates.ENABLED)
+		#new_item.change_state(Item.ItemStates.ENABLED)
 
 		new_item.global_position = items_marker.global_position
 		new_item.reparent(items_marker)

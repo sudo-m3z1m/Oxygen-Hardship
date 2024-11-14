@@ -54,7 +54,7 @@ func set_action_event(action: String) -> void:
 		"Interact":
 			target.items_component.take_item()
 		"Use":
-			pass
+			target.items_component.use_item()
 		"Drop":
 			pass
 		"ScrollUp":
